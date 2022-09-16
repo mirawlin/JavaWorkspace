@@ -11,15 +11,19 @@ class GameTest {
         game = new Game();
     }
 
+    private void playGame(Integer rolls, Integer pins) {
+        for(int i = 0; i < rolls; i++) {
+            game.roll(pins);
+        }
+    }
+
     @Test
     public void gameWith0PinsScored_ShouldReturnScoreOfZero() {
         // given
         setup();
 
         // when
-        for(int i = 0; i < 20; i++) {
-            game.roll(0);
-        }
+        playGame(20, 0);
 
         // then
         assertEquals(0, game.score());
@@ -31,9 +35,7 @@ class GameTest {
         setup();
 
         // when
-        for(int i = 0; i < 20; i++) {
-            game.roll(1);
-        }
+        playGame(20, 1);
 
         // then
         assertEquals(20, game.score());
