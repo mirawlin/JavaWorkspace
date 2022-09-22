@@ -70,6 +70,18 @@ class GameTest {
         assertEquals(26, game.score());
     }
 
+    @Test
+    public void perfectGame_shouldHaveScoreOf300() {
+        // given
+        setup();
+
+        // when
+        playGame(12,10);
+
+        // then
+        assertEquals(300, game.score());
+    }
+
     private void rollStrike() {
         game.roll(10);
     }
