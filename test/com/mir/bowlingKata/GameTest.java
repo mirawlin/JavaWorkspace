@@ -41,4 +41,23 @@ class GameTest {
         assertEquals(20, game.score());
     }
 
+    @Test
+    public void gameWith1Spare_shouldCalculateBonusCorrectly() {
+        // given
+        setup();
+
+        // when
+        rollSpare();
+        game.roll(3);
+        playGame(17, 0);
+
+        // then
+        assertEquals(16, game.score());
+    }
+
+    private void rollSpare() {
+        game.roll(5);
+        game.roll(5);
+    }
+
 }
